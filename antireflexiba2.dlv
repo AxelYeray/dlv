@@ -1,0 +1,16 @@
+rel(a, b).
+rel(b, c).
+rel(b, d).
+
+nodo(X) :- rel(X, _).
+nodo(X) :- rel(_, X).
+
+a(1..20).
+b(5..30).
+
+inter(X) :- a(X), b(X).
+union(X) :- a(X).
+union(X) :- b(X).
+
+dif(X) :- a(X), not inter(X).
+dif_sim(X) :- union(X), not nodo(X).
